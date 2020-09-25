@@ -10,7 +10,7 @@ const Query = {
    */
   getPosts: async (root, { authUserId, skip, limit }, { Post }) => {
     const query = {
-      $and: [{ image: { $ne: null } }, { author: { $ne: authUserId } }],
+     
     };
     const postsCount = await Post.find(query).countDocuments();
     const allPosts = await Post.find(query)

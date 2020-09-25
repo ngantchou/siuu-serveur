@@ -212,9 +212,7 @@ const Query = {
     follow.map(f => userFollowing.push(f.user));
 
     // Find users that user is not following
-    const query = {
-      $and: [{ _id: { $ne: userId } }, { _id: { $nin: userFollowing } }],
-    };
+    const query = {};
     const count = await User.where(query).countDocuments();
     const users = await User.find(query)
       .populate('followers')
@@ -233,6 +231,20 @@ const Query = {
       .sort({ createdAt: 'desc' });
 
     return { users, count };
+  },
+  /**
+   * Gets all users database
+   *
+   * @param {int} skip how many users to skip
+   * @param {int} limit how many users to limit
+   */
+  getAllUser: async (root, { skip, limit }, { User }) => {
+        const users = await User.find({})
+        //.skip(skip)
+        .limit(limit)
+        .sort({ createdAt: 'desc' });
+        //console.log("user :"+users);
+        return users;
   },
   /**
    * Searches users by username or fullName

@@ -10,6 +10,7 @@ import {
   HomeIcon,
   PeopleIcon,
   EnvelopeIcon,
+  PostUserIcon
 } from 'components/icons';
 
 const Link = styled(NavLink)`
@@ -60,21 +61,28 @@ const Navigation = () => {
       <Link exact activeClassName="selected" to={Routes.HOME}>
         <ListItem>
           <HomeIcon />
-          <Name>Home</Name>
-        </ListItem>
-      </Link>
-
-      <Link exact activeClassName="selected" to={Routes.EXPLORE}>
-        <ListItem>
-          <ExploreIcon width={20} />
-          <Name>Explore</Name>
+          <Name>Dashboard</Name>
         </ListItem>
       </Link>
 
       <Link exact activeClassName="selected" to={Routes.PEOPLE}>
         <ListItem>
+          <ExploreIcon width={20} />
+          <Name>Users</Name>
+        </ListItem>
+      </Link>
+
+      <Link exact activeClassName="selected" to={Routes.EXPLORE}>
+        <ListItem>
           <PeopleIcon />
-          <Name>People</Name>
+          <Name>Posts</Name>
+        </ListItem>
+      </Link>
+
+      <Link exact activeClassName="selected" to={'rooms'}>
+        <ListItem>
+          <PostUserIcon />
+          <Name>RoomTalk</Name>
         </ListItem>
       </Link>
 

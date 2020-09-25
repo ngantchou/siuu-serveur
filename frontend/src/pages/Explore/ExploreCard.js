@@ -41,11 +41,13 @@ const Photo = styled.div`
   background-position: center;
   background-color: ${p => p.theme.colors.grey[300]};
 `;
-
+const Text = styled.div`
+  font-size:14px;
+`;
 /**
  * Card component, meant to be used in Explore page
  */
-const ExploreCard = ({ openPostPopup, image, countLikes, countComments }) => {
+const ExploreCard = ({ openPostPopup,author,date, image, countLikes, countComments }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
@@ -76,6 +78,8 @@ const ExploreCard = ({ openPostPopup, image, countLikes, countComments }) => {
 
         <Spacing left="xs">{countComments}</Spacing>
       </Overlay>
+      <Text >{author}</Text>
+      <Text >{date}</Text>
     </Root>
   );
 };

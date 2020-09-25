@@ -11,7 +11,7 @@ import { Spacing, Container } from 'components/Layout';
 import { Loading } from 'components/Loading';
 import InfiniteScroll from 'components/InfiniteScroll';
 import Skeleton from 'components/Skeleton';
-import CreatePost from 'components/CreatePost';
+import DashboardView from './reports/DashboardView';
 import Head from 'components/Head';
 
 import { GET_FOLLOWED_POSTS } from 'graphql/post';
@@ -59,12 +59,12 @@ const Home = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="lg">
       <Head />
 
       <Spacing top="lg" />
 
-      <CreatePost />
+      <DashboardView />
 
       <Query
         query={GET_FOLLOWED_POSTS}

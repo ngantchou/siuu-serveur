@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import Header from 'components/App/Header';
 import NotFound from 'components/NotFound';
 import SideBar from './SideBar';
-import UserSuggestions from './UserSuggestions';
 
 import Home from 'pages/Home';
 import Profile from 'pages/Profile';
@@ -30,16 +29,17 @@ import { SET_AUTH_USER } from 'store/auth';
 const Root = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
+  margin: 2% ;
   width: 100%;
   position: relative;
 
   @media (min-width: ${p => p.theme.screen.md}) {
-    width: ${p => p.theme.screen.md};
+    
+    /*width: ${p => p.theme.screen.md};*/
   }
 
   @media (min-width: ${p => parseInt(p.theme.screen.lg, 10) + 20 + 'px'}) {
-    width: ${p => p.theme.screen.lg};
+    /*width: ${p => p.theme.screen.lg};*/
   }
 `;
 
@@ -103,8 +103,6 @@ const AppLayout = ({ location, authUser }) => {
 
           <Route component={NotFound} />
         </Switch>
-
-        <UserSuggestions pathname={location.pathname} />
       </Root>
     </>
   );

@@ -16,9 +16,9 @@ const Query = {
     { userId, skip, limit },
     { Notification }
   ) => {
-    const query = { user: userId };
-    const count = await Notification.where(query).countDocuments();
-    const notifications = await Notification.where(query)
+    const query = { };
+    const count = await Notification.find(query).countDocuments();
+    const notifications = await Notification.find(query)
       .populate('author')
       .populate('user')
       .populate('follow')

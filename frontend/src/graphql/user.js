@@ -172,7 +172,21 @@ export const GET_USERS = gql`
     }
   }
 `;
-
+/**
+ * Get all users 
+ */
+export const GET_ALL_USERS = gql`
+  query($skip: Int, $limit: Int) {
+    getAllUser(skip: $skip, limit: $limit) {
+      id
+      isOnline
+      fullName
+      username
+      image
+      createdAt
+    }
+  }
+`;
 /**
  * Searches users by username or fullName
  */

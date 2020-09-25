@@ -12,9 +12,9 @@ import InfiniteScroll from 'components/InfiniteScroll';
 import Empty from 'components/Empty';
 import { Loading } from 'components/Loading';
 import Head from 'components/Head';
-
+import CreatePost from 'components/CreatePost'
 import { GET_POSTS } from 'graphql/post';
-
+import { timeAgo } from 'utils/date';
 import { EXPLORE_PAGE_POSTS_LIMIT } from 'constants/DataLimit';
 
 import { useStore } from 'store';
@@ -37,7 +37,9 @@ const PostsContainer = styled.div`
   grid-auto-rows: auto;
   grid-gap: 20px;
 `;
-
+const Divider = styled.div`
+  padding-top:50px;
+`;
 /**
  * Explore page
  */
@@ -65,7 +67,8 @@ const Explore = () => {
   return (
     <Root maxWidth="md">
       <Head title="Explore New Posts and Users" />
-
+      <CreatePost />
+      <Divider />
       <Query
         query={GET_POSTS}
         variables={variables}
@@ -107,14 +110,18 @@ const Explore = () => {
                           >
                             <PostPopup id={post.id} closeModal={closeModal} />
                           </Modal>
-
+                          
                           <ExploreCard
                             image={post.image}
+                            author={post.author.username}
+                            date={timeAgo(post.createdAt)}
                             countLikes={post.likes.length}
                             countComments={post.comments.length}
                             openPostPopup={() => openModal(post.id)}
                           />
+                          
                         </Fragment>
+                        
                       ))}
                     </PostsContainer>
 

@@ -125,6 +125,9 @@ const UserSchema = gql`
     # Gets user by username or by id
     getUser(username: String, id: ID): UserPayload
 
+    # Gets all users records
+    getAllUser( skip: Int, limit: Int): [UserPayload]
+
     # Gets all users
     getUsers(userId: String!, skip: Int, limit: Int): UsersPayload
 

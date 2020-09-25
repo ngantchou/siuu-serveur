@@ -14,5 +14,11 @@
   ],
   "devDependencies": {
     "concurrently": "^4.1.2"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "clsx": "^1.1.1",
+    "react-chartjs-2": "^2.10.0",
+    "react-perfect-scrollbar": "^1.5.8"
   }
 }
